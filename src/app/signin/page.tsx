@@ -7,7 +7,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
-const page: React.FC = () => {
+const Page: React.FC = () => {
   const [rememberMe, setRememberMe] = useState(false);
 
   return (
@@ -81,7 +81,7 @@ const page: React.FC = () => {
             </form>
             
             <p className="mt-4 text-sm text-center text-gray-600">
-              Don't have an account? <Link href="/signup" className="text-green-500 hover:underline">Sign Up</Link>
+              Don&apos;t have an account? <Link href="/signup" className="text-green-500 hover:underline">Sign Up</Link>
             </p>
             
             <Button 
@@ -98,7 +98,7 @@ const page: React.FC = () => {
               text="Continue with Apple"  
             />
 
-           <Button 
+            <Button 
               bgColor="bg-blue-500 border border-gray-300 hover:border-gray-500 hover:text-white w-full px-4 py-2 mt-2 rounded-lg"   
               textColor="text-white"
               icon={FaFacebook}
@@ -117,5 +117,4 @@ const page: React.FC = () => {
   );
 };
 
-export default page;
-
+export default Page;
