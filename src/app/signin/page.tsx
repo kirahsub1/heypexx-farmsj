@@ -81,7 +81,7 @@ const Page: React.FC = () => {
             </form>
             
             <p className="mt-4 text-sm text-center text-gray-600">
-              Don&apos;t have an account? <Link href="/signup" className="text-green-500 hover:underline">Sign Up</Link>
+              Don&apos;t have an account? <Link href="/register" className="text-green-500 hover:underline">Register</Link>
             </p>
             
             <Button 
