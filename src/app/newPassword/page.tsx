@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 
-const page: React.FC = () => {
+const Page: React.FC = () => {
   return (
     <main className="flex items-center justify-center min-h-screen bg-gray-100 px-4">
       <section className="w-full max-w-6xl bg-white shadow-lg rounded-lg overflow-hidden">
@@ -80,4 +80,4 @@ const page: React.FC = () => {
   );
 };
 
-export default page;
+export default Page;
