@@ -7,7 +7,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
-const Page: React.FC = () => {
+const Page = () => {
   const [rememberMe, setRememberMe] = useState(false);
 
   return (

@@ -7,6 +7,7 @@ import ImagePopupSection from "./components/landing/ImagePopUps";
 import Partnership from "./components/landing/Partner";
 import ServicesSection from "./components/landing/Service";
 import Slideshow from "./components/landing/Slider";
+import HowItWorks from "./components/landing/HowItwork";
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
       <HighlightedSection />
       <ImagePopupSection />
       <ServicesSection />
+      <HowItWorks />
     </div>
   );
 }
