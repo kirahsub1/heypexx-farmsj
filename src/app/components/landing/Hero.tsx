@@ -43,13 +43,13 @@ function Hero() {
       <div className="text-center z-10 px-4">
   <h1 className="text-6xl md:text-7xl font-extrabold text-black leading-tight">
     Shop Smart. Farm Big. <br /> 
-    <span className="text-green-400">Export Goods.</span>
+    <span className="text-green-600">Export Goods.</span>
   </h1>
   <p className="mt-6 text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto">
     Get high-quality farm products and lease the perfect land to grow your farm — all in one place.
   </p>
   <div className="mt-8 flex justify-center gap-6">
-    <button className="bg-green-500 text-white px-8 py-3 text-lg font-semibold rounded-full shadow-lg hover:bg-green-600 transition-all duration-300">
+    <button className="bg-[#46A908] text-white px-8 py-3 text-lg font-semibold rounded-full shadow-lg hover:bg-green-600 transition-all duration-300">
       Buy Now
     </button>
     <button className="border border-white px-8 py-3 text-lg font-semibold text-green-500 bg-white bg-opacity-20 rounded-full shadow-lg hover:bg-opacity-100 hover:text-gray-900 transition-all duration-300">

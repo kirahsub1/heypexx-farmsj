@@ -40,7 +40,7 @@ const Navbar: React.FC = () => {
             <Link href="/signin" className="px-3 py-1 bg-white text-green-600 rounded-xl text-sm hover:bg-gray-200">
               Sign In
             </Link>
-            <Link href="/register" className="px-3 py-1 bg-green-700 text-white rounded-xl text-sm hover:bg-green-600">
+            <Link href="/register" className="px-3 py-1 bg-[#46A908] text-white rounded-xl text-sm hover:bg-green-600">
               Register
             </Link>
           </div>

@@ -43,7 +43,7 @@ const Partnership: React.FC = () => {
         <div className="mt-8">
           <a
             href="/contact"
-            className="px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold text-lg shadow-md hover:bg-blue-700 transition"
+            className="px-6 py-3 bg-[#46A908] text-white rounded-lg font-semibold text-lg shadow-md hover:bg-blue-700 transition"
           >
             Partner with Us
           </a>

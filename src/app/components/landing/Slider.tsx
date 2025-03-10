@@ -1,84 +1,45 @@
 'use client';
 
-import { useState, useEffect} from 'react';
-
-import { motion, AnimatePresence } from "framer-motion";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 const images = [
   'https://res.cloudinary.com/dgcjq4kbf/image/upload/v1740164015/image_6_fmgsqr.png',
   'https://res.cloudinary.com/dgcjq4kbf/image/upload/v1740164046/image_5_qy1o0j.png',
   'https://res.cloudinary.com/dgcjq4kbf/image/upload/v1740164002/image_8_hefwd7.png',
+  'https://res.cloudinary.com/dgcjq4kbf/image/upload/v1740163999/image_4_je7y6t.png',
+  'https://res.cloudinary.com/dgcjq4kbf/image/upload/v1740994672/image_22_nytys4.png',
+  'https://res.cloudinary.com/dgcjq4kbf/image/upload/v1741007851/Leonardo_Kino_XL_Farm_tomatoe_fresh_produce_in_africa_3_gqh7hz.jpg',
+  'https://res.cloudinary.com/dgcjq4kbf/image/upload/v1741007851/Leonardo_Kino_XL_Farm_Corn_fresh_produce_in_africa_1_p6dj45.jpg'
 ];
 
-
-const AUTO_SLIDE_INTERVAL = 3000; // 3 seconds
-
-const Slider = () => {
-  const [current, setCurrent] = useState(0);
-
-  // Function to go to the next slide
-  const nextSlide = () => {
-    setCurrent((prev) => (prev === images.length - 1 ? 0 : prev + 1));
-  };
-
-  // Function to go to the previous slide
-  const prevSlide = () => {
-    setCurrent((prev) => (prev === 0 ? images.length - 1 : prev - 1));
-  };
-
-  // Auto-slide effect
-  useEffect(() => {
-    const interval = setInterval(nextSlide, AUTO_SLIDE_INTERVAL);
-    return () => clearInterval(interval); // Cleanup on unmount
-  }, []);
-
+const ImageScroller = () => {
   return (
-    <div className="relative w-full max-w-3xl mx-auto overflow-hidden rounded-lg">
-      <AnimatePresence mode="wait">
-        <motion.img
-          key={images[current]}
-          src={images[current]}
-          alt={`Slide ${current + 1}`}
-          className="w-full h-64 object-cover rounded-lg"
-          initial={{ opacity: 0, x: 50 }}
-          animate={{ opacity: 1, x: 0 }}
-          exit={{ opacity: 0, x: -50 }}
-          transition={{ duration: 0.5 }}
-        />
-      </AnimatePresence>
-
-      {/* Left Arrow */}
-      <button
-        onClick={prevSlide}
-        className="absolute top-1/2 left-2 -translate-y-1/2 bg-black/50 p-2 rounded-full text-white hover:bg-black/70"
+    <div className="overflow-hidden relative w-full bg-white py-16 flex items-center">
+      <motion.div
+        className="flex w-max"
+        initial={{ x: 0 }}
+        animate={{ x: ['0%', '-50%'] }}
+        transition={{
+          repeat: Infinity,
+          duration: 30,
+          ease: 'linear',
+        }}
       >
-        <ChevronLeft size={24} />
-      </button>
-
-      {/* Right Arrow */}
-      <button
-        onClick={nextSlide}
-        className="absolute top-1/2 right-2 -translate-y-1/2 bg-black/50 p-2 rounded-full text-white hover:bg-black/70"
-      >
-        <ChevronRight size={24} />
-      </button>
-
-      {/* Indicators */}
-      <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-2">
-        {images.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => setCurrent(index)}
-            className={`w-3 h-3 rounded-full ${
-              index === current ? "bg-white" : "bg-gray-400"
-            }`}
-          />
+        {[...images, ...images, ...images].map((src, index) => (
+          <div key={index} className="w-72 h-48 mx-4 relative flex-shrink-0">
+            <Image
+              src={src}
+              alt={`Scrolling Image ${index}`}
+              layout="fill"
+              objectFit="cover"
+              className="rounded-2xl shadow-2xl border-4 border-white"
+            />
+          </div>
         ))}
-      </div>
+      </motion.div>
     </div>
   );
 };
 
-
-export default Slider;
+export default ImageScroller;
