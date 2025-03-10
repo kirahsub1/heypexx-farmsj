@@ -67,7 +67,7 @@ const Page: React.FC = () => {
             <p className="mt-4 text-sm text-center text-gray-600">
               Back to <Link href="/signin" className="text-green-500 hover:underline">Sign In</Link>
             </p>
-
+ <p>my name</p>
             {/* Footer Section */}
             <footer className="mt-6 text-center text-gray-600 text-sm">
               <p>By continuing, you agree to Heypexx Farms</p>
