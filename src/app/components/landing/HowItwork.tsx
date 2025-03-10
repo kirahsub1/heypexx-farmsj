@@ -2,14 +2,14 @@ import Image from "next/image";
 
 const steps = [
   {
-    title: "Step 1: Sign Up",
-    description: "Create an account to get started.",
-    image: "/images/signup.png",
+    title: "Browse Products",
+    description: "Explore our wide range of fresh farm produce, inputs, and leasing opportunities tailored to your needs",
+    image: "https://res.cloudinary.com/dgcjq4kbf/image/upload/v1741621565/image_38_c6cd3t.png",
   },
   {
-    title: "Step 2: Choose a Plan",
-    description: "Select the best plan that suits your needs.",
-    image: "/images/plan.png",
+    title: "Place Your Order",
+    description: "Select your desired products or services and add them to your cart to purchase.",
+    image: "https://res.cloudinary.com/dgcjq4kbf/image/upload/v1741621565/image_39_zps11j.png",
   },
   {
     title: "Step 3: Customize Settings",
