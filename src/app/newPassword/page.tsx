@@ -70,7 +70,7 @@ const Page: React.FC = () => {
 
             {/* Footer Section */}
             <footer className="mt-6 text-center text-gray-600 text-sm">
-              <p>By continuing, you agree to Heypexx Farm’s</p>
+              <p>By continuing, you agree to Heypexx Farms</p>
               <Link href="#" className="text-green-500 hover:underline">Terms of Service</Link>
             </footer>
           </div>
