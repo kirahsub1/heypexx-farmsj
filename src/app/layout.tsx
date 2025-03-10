@@ -1,11 +1,22 @@
 import "../app/globals.css"; // Ensure correct path
+import Navbar from "./components/static/Navbar";
+import { ReactNode } from "react"; // Import ReactNode for type
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+
+interface RootLayoutProps {
+  children: ReactNode;
+}
+
+export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en">
       <body>
-        {children}
+        <Navbar /> {/* Correctly render Navbar as a component */}
+        <main>{children}</main>
       </body>
     </html>
   );
 }
+
+
+

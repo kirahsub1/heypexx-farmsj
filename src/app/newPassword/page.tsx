@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 
-const page: React.FC = () => {
+const Page: React.FC = () => {
   return (
     <main className="flex items-center justify-center min-h-screen bg-gray-100 px-4">
       <section className="w-full max-w-6xl bg-white shadow-lg rounded-lg overflow-hidden">
@@ -67,10 +67,10 @@ const page: React.FC = () => {
             <p className="mt-4 text-sm text-center text-gray-600">
               Back to <Link href="/signin" className="text-green-500 hover:underline">Sign In</Link>
             </p>
-
+ <p>my name</p>
             {/* Footer Section */}
             <footer className="mt-6 text-center text-gray-600 text-sm">
-              <p>By continuing, you agree to Heypexx Farm’s</p>
+              <p>By continuing, you agree to Heypexx Farms</p>
               <Link href="#" className="text-green-500 hover:underline">Terms of Service</Link>
             </footer>
           </div>
@@ -80,4 +80,4 @@ const page: React.FC = () => {
   );
 };
 
-export default page;
+export default Page;

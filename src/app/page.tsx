@@ -1,12 +1,23 @@
-import "../app/globals.css"
+"use client";
+
+import "../app/globals.css"; // Ensure correct path
+import { Hero } from "./components/landing/Hero";
+import HighlightedSection from "./components/landing/Highlighted";
+import ImagePopupSection from "./components/landing/ImagePopUps";
+import Partnership from "./components/landing/Partner";
+import ServicesSection from "./components/landing/Service";
+import Slideshow from "./components/landing/Slider";
 
 export default function Home() {
   return (
-    
-      <div className=""> 
-        <h1>Hello Next.js!</h1>
-        
-        
-      </div>
+    <div>
+      <Hero />
+      <Slideshow />
+      <Partnership />
+      <HighlightedSection />
+      <ImagePopupSection />
+      <ServicesSection />
+    </div>
   );
 }
+

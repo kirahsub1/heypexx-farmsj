@@ -6,7 +6,7 @@ import Button from "@/app/components/buttons/Button";
 import Image from "next/image";
 import Link from "next/link";
 
-const page: React.FC = () => {
+const Page: React.FC = () => {
   return (
     <main className="flex items-center justify-center min-h-screen bg-gray-100 px-4">
       <section className="w-full max-w-6xl bg-white shadow-lg rounded-lg overflow-hidden">
@@ -28,7 +28,7 @@ const page: React.FC = () => {
           <div className="p-8 md:p-12 w-full">
             <h2 className="text-2xl text-center font-bold text-gray-800">Reset Your Password</h2>
             <p className="mt-2 text-sm text-center text-gray-600">
-              Enter your email, and we'll send you a link to reset your password.
+              Enter your email, and we&apos;ll send you a link to reset your password.
             </p>
 
             <form action="#" method="POST" className="mt-6 space-y-4">
@@ -83,7 +83,7 @@ const page: React.FC = () => {
 
             {/* Footer Section */}
             <footer className="mt-6 text-center text-gray-600 text-sm">
-              <p>By continuing, you agree to Heypexx Farm’s</p>
+              <p>By continuing, you agree to Heypexx Farms</p>
               <Link href="#" className="text-green-500 hover:underline">Terms of Service</Link>
             </footer>
           </div>
@@ -93,4 +93,4 @@ const page: React.FC = () => {
   );
 };
 
-export default page;
+export default Page;
