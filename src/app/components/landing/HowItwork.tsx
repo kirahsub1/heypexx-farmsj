@@ -12,19 +12,19 @@ const steps = [
     image: "https://res.cloudinary.com/dgcjq4kbf/image/upload/v1741621565/image_39_zps11j.png",
   },
   {
-    title: "Step 3: Customize Settings",
-    description: "Adjust your preferences and personalize your experience.",
-    image: "/images/settings.png",
+    title: "Secure Payment",
+    description: "Checkout using our trusted and secure payment options.",
+    image: "https://res.cloudinary.com/dgcjq4kbf/image/upload/v1741621565/image_41_d1xhh3.png",
   },
   {
-    title: "Step 4: Start Using",
-    description: "Begin using the platform and enjoy the features.",
-    image: "/images/start.png",
+    title: "Track and Receive",
+    description: "Stay updated on your order status with real-time tracking until it&apos;s delivered to your doorstep.",
+    image: "https://res.cloudinary.com/dgcjq4kbf/image/upload/v1741621565/image_42_mef9lx.png",
   },
   {
-    title: "Step 5: Get Support",
-    description: "Reach out to our support team for assistance anytime.",
-    image: "/images/support.png",
+    title: "Export Opportunities",
+    description: "For bulk purchases or international buyers, connect with our export services to reach global markets.",
+    image: "https://res.cloudinary.com/dgcjq4kbf/image/upload/v1741621565/image_44_yikivp.png",
   },
 ];
 
@@ -33,9 +33,9 @@ const HowItWorks = () => {
     <section className="py-12 bg-gray-100">
       <div className="container mx-auto text-center">
         <h2 className="text-3xl font-bold mb-8">How It Works</h2>
-        <div className="grid md:grid-cols-5 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-6">
           {steps.map((step, index) => (
-            <div key={index} className="p-4 bg-white shadow-lg rounded-lg text-center">
+            <div key={index} className="p-4 bg-white shadow-lg rounded-lg text-left">
               <Image
                 src={step.image}
                 alt={step.title}
@@ -54,3 +54,4 @@ const HowItWorks = () => {
 };
 
 export default HowItWorks;
+
