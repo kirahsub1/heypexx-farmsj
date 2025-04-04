@@ -1,55 +1,97 @@
- 'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import { Card, CardContent } from '../ui/Card';
-// import { useState } from 'react';
+import { Card, CardContent } from "../ui/Card";
+import { Star } from "lucide-react";
 
-const testimonials = [
-  {
-    name: 'John Doe',
-    role: 'CEO, Example Co.',
-    message:
-      'This product has exceeded my expectations! Highly recommend to anyone looking for quality.',
-  },
-  {
-    name: 'Jane Smith',
-    role: 'Marketing Director, XYZ Inc.',
-    message:
-      'Fantastic experience! The team was professional, and the results were outstanding.',
-  },
-  {
-    name: 'Alice Johnson',
-    role: 'Freelancer',
-    message:
-      'A game-changer for my workflow. I can\'t imagine going back to how things were before.',
-  },
-];
-
-export default function TestimonialSection() {
-  return (
-    <section className="py-12 bg-gradient-to-b from-[#c3e4aa] to-white">
-      <div className="container mx-auto px-6 text-center">
-        <h2 className="text-3xl font-bold text-gray-800 mb-6">What Our Clients Say</h2>
-        <div className="grid md:grid-cols-3 gap-6">
-          {testimonials.map((testimonial, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.2 }}
-            >
-              <Card className="p-6 shadow-lg rounded-xl bg-white">
-                <CardContent className="flex flex-col items-center text-center">
-                  <p className="text-gray-600 mb-4">&#34;{testimonial.message}&#34;</p>
-                  <h4 className="font-semibold text-lg text-gray-800">{testimonial.name}</h4>
-                  <p className="text-sm text-gray-500">{testimonial.role}</p>
-                </CardContent>
-              </Card>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
+interface TestimonialProps {
+  name: string;
+  title: string;
+  message: string;
+  rating: number;
+  image: string;
 }
 
+const Testimonial: React.FC<TestimonialProps> = ({
+  name,
+  title,
+  message,
+  rating,
+  image,
+}) => {
+  return (
+    <Card className="w-full max-w-lg p-8 rounded-3xl shadow-2xl bg-white text-gray-900 transform hover:scale-105 transition-all duration-300">
+      <CardContent>
+        {/* Rating Section */}
+        <div className="flex items-center gap-1 mb-4">
+          {[...Array(5)].map((_, i) => (
+            <Star
+              key={i}
+              size={26}
+              className={i < rating ? "text-yellow-400" : "text-gray-300"}
+              fill={i < rating ? "currentColor" : "none"}
+            />
+          ))}
+        </div>
+
+        {/* Title */}
+        <h3 className="text-xl font-bold text-gray-800 mb-2">{title}</h3>
+
+        {/* Message */}
+        <p className="text-lg font-medium italic leading-relaxed text-gray-600">
+          "{message}"
+        </p>
+
+        {/* User Info */}
+        <div className="mt-6 flex items-center gap-4">
+          <img
+            src={image}
+            alt={name}
+            className="w-14 h-14 rounded-full object-cover border-4 border-gray-200 shadow-lg"
+          />
+          <span className="font-bold text-lg text-gray-900">{name}</span>
+        </div>
+      </CardContent>
+    </Card>
+  );
+};
+
+const Testimonials = () => {
+  const testimonials = [
+    {
+      name: "John Doe",
+      title: "CEO, InnovateTech",
+      message: "Absolutely loved the experience! Highly recommended!",
+      rating: 5,
+      image: "https://randomuser.me/api/portraits/men/32.jpg",
+    },
+    {
+      name: "Jane Smith",
+      title: "Marketing Director, CreativeHub",
+      message: "Great service, would definitely come back!",
+      rating: 4,
+      image: "https://randomuser.me/api/portraits/women/44.jpg",
+    },
+    {
+      name: "Alex Brown",
+      title: "Product Manager, TechWorld",
+      message: "Fantastic! Made my day so much better!",
+      rating: 5,
+      image: "https://randomuser.me/api/portraits/men/47.jpg",
+    },
+  ];
+
+  return (
+    <div className="p-12 bg-gradient-to-b from-[#c3e4aa] to-white min-h-screen flex flex-col items-center">
+      <h2 className="text-3xl font-extrabold text-gray-900 mb-12 uppercase tracking-wide">
+        Testimonials
+      </h2>
+      <div className="w-full max-w-6xl grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mt-6">
+        {testimonials.map((testimonial, index) => (
+          <Testimonial key={index} {...testimonial} />
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default Testimonials;

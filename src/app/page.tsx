@@ -9,6 +9,8 @@ import ServicesSection from "./components/landing/Service";
 import Slideshow from "./components/landing/Slider";
 import HowItWorks from "./components/landing/HowItwork";
 import TestimonialSection from "./components/landing/Testimonial";
+import FAQSection from "./components/landing/Faq";
+
 
 export default function Home() {
   return (
@@ -21,6 +23,7 @@ export default function Home() {
       <ServicesSection />
       <HowItWorks />
       <TestimonialSection />
+      <FAQSection />
     </div>
   );
 }
