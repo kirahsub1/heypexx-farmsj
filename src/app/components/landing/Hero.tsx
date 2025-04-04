@@ -41,8 +41,8 @@ function Hero() {
       
       {/* Hero Content */}
       <div className="text-center z-10 px-4">
-  <h1 className="text-6xl md:text-7xl font-extrabold text-black leading-tight">
-    Shop Smart. Farm Big. <br /> 
+  <h1 className="text-4xl md:text-7xl font-extrabold text-black leading-tight">
+    Shop Smart.Farm <br /> Big. 
     <span className="text-green-600">Export Goods.</span>
   </h1>
   <p className="mt-6 text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto">
