@@ -1,7 +1,7 @@
 import "../app/globals.css"; // Ensure correct path
 import Navbar from "./components/static/Navbar";
 import { ReactNode } from "react"; // Import ReactNode for type
-import Footer from "./components/sta"
+import Footer from "./components/static/Footer"
 
 
 interface RootLayoutProps {

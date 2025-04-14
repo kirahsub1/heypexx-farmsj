@@ -25,23 +25,23 @@ const Footer = () => {
           <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
           <ul className="space-y-2">
             <li>
-              <Link href="/">
-                <a className="text-gray-400 hover:text-white">Home</a>
+              <Link href="/" className="text-gray-400 hover:text-white">
+                Home
               </Link>
             </li>
             <li>
-              <Link href="/about">
-                <a className="text-gray-400 hover:text-white">About Us</a>
+              <Link href="/about" className="text-gray-400 hover:text-white">
+                About Us
               </Link>
             </li>
             <li>
-              <Link href="/services">
-                <a className="text-gray-400 hover:text-white">Services</a>
+              <Link href="/services" className="text-gray-400 hover:text-white">
+                Services
               </Link>
             </li>
             <li>
-              <Link href="/contact">
-                <a className="text-gray-400 hover:text-white">Contact</a>
+              <Link href="/contact" className="text-gray-400 hover:text-white">
+                Contact
               </Link>
             </li>
           </ul>
@@ -51,7 +51,7 @@ const Footer = () => {
         <div className="flex flex-col items-start">
           <h3 className="text-lg font-semibold mb-4">Follow Us</h3>
           <div className="flex space-x-4">
-            <a
+            <Link
               href="https://facebook.com"
               className="text-gray-400 hover:text-white"
               target="_blank"
@@ -63,8 +63,8 @@ const Footer = () => {
                 width={24} // Set desired width
                 height={24} // Set desired height
               />
-            </a>
-            <a
+            </Link>
+            <Link
               href="https://twitter.com"
               className="text-gray-400 hover:text-white"
               target="_blank"
@@ -76,8 +76,8 @@ const Footer = () => {
                 width={24} // Set desired width
                 height={24} // Set desired height
               />
-            </a>
-            <a
+            </Link>
+            <Link
               href="https://instagram.com"
               className="text-gray-400 hover:text-white"
               target="_blank"
@@ -89,7 +89,7 @@ const Footer = () => {
                 width={24} // Set desired width
                 height={24} // Set desired height
               />
-            </a>
+            </Link>
           </div>
         </div>
 
