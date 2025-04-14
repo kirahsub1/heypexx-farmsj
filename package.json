@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "framer-motion": "^12.4.3",
+    "keen-slider": "^6.8.6",
     "lucide-react": "^0.475.0",
     "next": "15.1.6",
     "next-cloudinary": "^6.16.0",

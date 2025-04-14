@@ -14,7 +14,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
       <body>
         <Navbar /> {/* Correctly render Navbar as a component */}
         <main>{children}</main>
-        <Footer/>
+        <Footer />
       </body>
     </html>
   );

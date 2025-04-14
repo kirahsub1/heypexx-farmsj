@@ -31,22 +31,41 @@ const cardsData = [
 
 export default function ImagePopupSection() {
   return (
-    <section className="p-6 bg-gray-100">
-      <h2 className="text-3xl font-bold text-center text-green-700 mb-6">Why Heypexx Farms</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <section className="p-6 bg-white">
+      <h2 className="text-3xl font-bold text-center text-black mb-6">
+        Why Heypexx Farms
+      </h2>
+
+      {/* Responsive grid layout with centered content */}
+      <div className="grid gap-6 justify-center grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
         {cardsData.map((card, index) => (
-          <Card key={index} className="rounded-2xl shadow-lg overflow-hidden bg-white">
+          <Card
+            key={index}
+            className="rounded-2xl shadow-lg overflow-hidden bg-white w-full max-w-md"
+          >
             {/* Image Section */}
-            <div className={`bg-[#C3E4AA] p-4 flex ${index === 2 ? 'flex-col items-center' : 'justify-center'}`}>
-              <div className={`${index === 2 ? 'flex flex-col items-center space-y-4' : 'grid grid-cols-3 gap-2'}`}>
+            <div
+              className={`bg-[#C3E4AA] p-4 flex ${
+                index === 2 ? "flex-col items-center" : "justify-center"
+              }`}
+            >
+              <div
+                className={`${
+                  index === 2
+                    ? "flex flex-col items-center space-y-4"
+                    : "grid grid-cols-3 gap-2"
+                }`}
+              >
                 {card.images.map((img, idx) => (
-                  <Image 
-                    key={idx} 
-                    src={img} 
-                    alt={`Image ${idx + 1}`} 
-                    width={index === 2 ? 120 : 70} 
-                    height={index === 2 ? 180 : 120} 
-                    className={`rounded-lg shadow-md ${index === 2 ? 'border-4 border-green-700' : ''}`}
+                  <Image
+                    key={idx}
+                    src={img}
+                    alt={`Image ${idx + 1}`}
+                    width={index === 2 ? 120 : 70}
+                    height={index === 2 ? 180 : 120}
+                    className={`rounded-lg shadow-md ${
+                      index === 2 ? "border-4 border-green-700" : ""
+                    }`}
                   />
                 ))}
               </div>
@@ -54,7 +73,9 @@ export default function ImagePopupSection() {
 
             {/* Title & Description */}
             <CardContent className="p-4 text-center">
-              <h3 className="text-xl font-semibold text-green-700 mb-2">{card.title}</h3>
+              <h3 className="text-xl font-semibold text-green-700 mb-2">
+                {card.title}
+              </h3>
               <p className="text-gray-600">{card.description}</p>
             </CardContent>
           </Card>
@@ -63,6 +84,7 @@ export default function ImagePopupSection() {
     </section>
   );
 }
+
 
 
 
