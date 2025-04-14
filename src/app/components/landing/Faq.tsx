@@ -37,7 +37,7 @@ export default function FAQSection() {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center min-h-screen bg-gray-100 space-y-10">
+    <div className="flex flex-col justify-center items-center min-h-screen bg-white space-y-10">
       <h2 className="text-4xl font-extrabold text-center text-gray-800">
         Frequently Asked Questions
       </h2>
