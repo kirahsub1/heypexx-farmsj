@@ -173,7 +173,7 @@ const Footer = () => {
 
         {/* Copyright */}
         <p className="text-sm text-gray-600">
-          © 2025 Your Company. All rights reserved.
+          © 2025 Heypexx Farms Powered by Kirahshub.All rights reserved.
         </p>
 
         {/* Legal Links */}
