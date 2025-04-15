@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { Facebook, Twitter, Instagram, Linkedin,Mail,Phone } from 'lucide-react';
 
 const Footer = () => {
   return (
@@ -10,20 +11,78 @@ const Footer = () => {
         <div className="md:col-span-1 md:border-r border-gray-300 pr-6">
           <div className="flex flex-col items-start">
             <Image
-              src="/path-to-logo.png"
+              src="https://res.cloudinary.com/dgcjq4kbf/image/upload/v1737469420/image_18_gwbxab.png"
               alt="Logo"
               width={150}
               height={50}
               className="mb-4"
+              priority
             />
             <p className="text-sm text-gray-600">
-              Bringing you the best updates straight to your inbox.
+              Connecting local farms to global markets through seamless
+              leasing,sales and exportation of quality agricultural produce.
             </p>
           </div>
         </div>
 
         {/* Other Footer Content */}
         <div className="md:col-span-4 grid grid-cols-1 sm:grid-cols-3 gap-8 pl-0 md:pl-6">
+          {/* Contact Info */}
+          <div className="flex flex-col items-start">
+            <h3 className="text-lg font-semibold mb-4">Support</h3>
+            <div className="flex items-center space-x-2 text-sm text-gray-600 mb-2">
+              <Mail className="w-4 h-4 text-gray-500" />
+              <span>heypexxfarms@gmail.com</span>
+            </div>
+            <div className="flex items-center space-x-2 text-sm text-gray-600">
+              <Phone className="w-4 h-4 text-gray-500" />
+              <span>+234802 335 6010</span>
+            </div>
+            <div className="flex items-center space-x-2 text-sm text-gray-600">
+              <Phone className="w-4 h-4 text-gray-500" />
+              <span>+234905 123 5413</span>
+            </div>
+          </div>
+
+          {/* Account info*/}
+          <div className="flex flex-col items-start">
+            <h3 className="text-lg font-semibold mb-4">Account</h3>
+            <ul className="space-y-2">
+              <li>
+                <Link
+                  href="/MyAccount"
+                  className="text-gray-600 hover:text-gray-900"
+                >
+                  My Account
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/signin"
+                  className="text-gray-600 hover:text-gray-900"
+                >
+                  Login
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/Notification"
+                  className="text-gray-600 hover:text-gray-900"
+                >
+                  Notifications
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/Shop"
+                  className="text-gray-600 hover:text-gray-900"
+                >
+                  Shop
+                </Link>
+              </li>
+            </ul>
+          </div>
+
           {/* Quick Links */}
           <div className="flex flex-col items-start">
             <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
@@ -35,82 +94,37 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  href="/about"
+                  href="/ImagePopUps"
                   className="text-gray-600 hover:text-gray-900"
                 >
-                  About Us
+                  Why Heypexx
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/services"
+                  href="/Service"
                   className="text-gray-600 hover:text-gray-900"
                 >
-                  Services
+                  Our Services
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/contact"
+                  href="/Faqs"
                   className="text-gray-600 hover:text-gray-900"
                 >
-                  Contact
+                  FAQS
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/Contact"
+                  className="text-gray-600 hover:text-gray-900"
+                >
+                  Contact Us
                 </Link>
               </li>
             </ul>
-          </div>
-
-          {/* Contact Info */}
-          <div className="flex flex-col items-start">
-            <h3 className="text-lg font-semibold mb-4">Contact Us</h3>
-            <p className="text-sm text-gray-600">info@yourdomain.com</p>
-            <p className="text-sm text-gray-600">(123) 456-7890</p>
-          </div>
-
-          {/* Social Media */}
-          <div className="flex flex-col items-start">
-            <h3 className="text-lg font-semibold mb-4">Follow Us</h3>
-            <div className="flex space-x-4">
-              <Link
-                href="https://facebook.com"
-                className="hover:text-gray-900"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Image
-                  src="/facebook-icon.png"
-                  alt="Facebook"
-                  width={24}
-                  height={24}
-                />
-              </Link>
-              <Link
-                href="https://twitter.com"
-                className="hover:text-gray-900"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Image
-                  src="/twitter-icon.png"
-                  alt="Twitter"
-                  width={24}
-                  height={24}
-                />
-              </Link>
-              <Link
-                href="https://instagram.com"
-                className="hover:text-gray-900"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Image
-                  src="/instagram-icon.png"
-                  alt="Instagram"
-                  width={24}
-                  height={24}
-                />
-              </Link>
-            </div>
           </div>
         </div>
       </div>
@@ -118,46 +132,43 @@ const Footer = () => {
       {/* Bottom Bar */}
       <div className="border-t border-gray-300 px-6 py-4 flex flex-col md:flex-row md:justify-between md:items-center text-center md:text-left space-y-4 md:space-y-0 bg-gray-100">
         {/* Social Icons */}
-        <div className="flex justify-center md:justify-start space-x-4">
-          <Link
-            href="https://facebook.com"
-            className="hover:text-gray-900"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              src="/facebook-icon.png"
-              alt="Facebook"
-              width={20}
-              height={20}
-            />
-          </Link>
-          <Link
-            href="https://twitter.com"
-            className="hover:text-gray-900"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              src="/twitter-icon.png"
-              alt="Twitter"
-              width={20}
-              height={20}
-            />
-          </Link>
-          <Link
-            href="https://instagram.com"
-            className="hover:text-gray-900"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              src="/instagram-icon.png"
-              alt="Instagram"
-              width={20}
-              height={20}
-            />
-          </Link>
+
+        <div className="flex flex-col items-start">
+          <h3 className="text-lg font-semibold mb-4">Follow Us</h3>
+          <div className="flex space-x-4">
+            <Link
+              href="https://facebook.com"
+              className="hover:text-gray-900"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Facebook className="w-6 h-6 text-gray-600 hover:text-blue-600" />
+            </Link>
+            <Link
+              href="https://twitter.com"
+              className="hover:text-gray-900"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Twitter className="w-6 h-6 text-gray-600 hover:text-sky-500" />
+            </Link>
+            <Link
+              href="https://instagram.com"
+              className="hover:text-gray-900"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Instagram className="w-6 h-6 text-gray-600 hover:text-pink-500" />
+            </Link>
+            <Link
+              href="https://instagram.com"
+              className="hover:text-gray-900"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Linkedin className="w-6 h-6 text-gray-600 hover:text-pink-500" />
+            </Link>
+          </div>
         </div>
 
         {/* Copyright */}

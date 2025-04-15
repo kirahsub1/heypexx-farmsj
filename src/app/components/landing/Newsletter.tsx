@@ -18,7 +18,7 @@ const NewsletterSection = () => {
         <p className="text-2xl text-[#46A908] mb-2">
           Newsletter
         </p>
-        <h2 className="text-3xl font-bold text-gray-800 mb-4">Stay Updated!</h2>
+        <h2 className="text-3xl font-bold text-gray-800 mb-4">Get Weekly Updated!</h2>
         <form
           onSubmit={handleSubmit}
           className="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-4"

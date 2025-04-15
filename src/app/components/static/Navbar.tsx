@@ -31,8 +31,8 @@ const Navbar: React.FC = () => {
           <div className="hidden md:flex space-x-4 items-center text-sm text-green-900">
             <Link href="/" className="hover:text-gray-700">Home</Link>
             <Link href="/why-heypexx" className="hover:text-gray-700">Why Heypexx</Link>
-            <Link href="/services" className="hover:text-gray-700">Our Service</Link>
-            <Link href="/contact" className="hover:text-gray-700">Contact Us</Link>
+            <Link href="/Service" className="hover:text-gray-700">Our Service</Link>
+            <Link href="/Contact" className="hover:text-gray-700">Contact Us</Link>
           </div>
 
           {/* Sign In & Register Buttons */}
