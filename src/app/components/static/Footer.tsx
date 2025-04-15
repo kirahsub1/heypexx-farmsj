@@ -137,7 +137,7 @@ const Footer = () => {
           <h3 className="text-lg font-semibold mb-4">Follow Us</h3>
           <div className="flex space-x-4">
             <Link
-              href="https://facebook.com"
+              href="https://www.facebook.com/share/p/1KexsZjZ9m/"
               className="hover:text-gray-900"
               target="_blank"
               rel="noopener noreferrer"
@@ -145,7 +145,7 @@ const Footer = () => {
               <Facebook className="w-6 h-6 text-gray-600 hover:text-blue-600" />
             </Link>
             <Link
-              href="https://twitter.com"
+              href="https://x.com/Heypexxfarms"
               className="hover:text-gray-900"
               target="_blank"
               rel="noopener noreferrer"
@@ -153,7 +153,7 @@ const Footer = () => {
               <Twitter className="w-6 h-6 text-gray-600 hover:text-sky-500" />
             </Link>
             <Link
-              href="https://instagram.com"
+              href="https://www.instagram.com/heypexxfarms/"
               className="hover:text-gray-900"
               target="_blank"
               rel="noopener noreferrer"
@@ -161,7 +161,7 @@ const Footer = () => {
               <Instagram className="w-6 h-6 text-gray-600 hover:text-pink-500" />
             </Link>
             <Link
-              href="https://instagram.com"
+              href="https://www.linkedin.com/company/heypexx-farms-ng/"
               className="hover:text-gray-900"
               target="_blank"
               rel="noopener noreferrer"
