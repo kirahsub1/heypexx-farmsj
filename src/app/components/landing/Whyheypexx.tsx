@@ -29,7 +29,7 @@ const cardsData = [
   },
 ];
 
-export default function ImagePopupSection() {
+export default function Whyheypexx() {
   return (
     <section className="p-6 bg-white">
       <h2 className="text-3xl font-bold text-center text-black mb-6">

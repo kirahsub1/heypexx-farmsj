@@ -94,7 +94,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  href="/ImagePopUps"
+                  href="/whyHeypexx"
                   className="text-gray-600 hover:text-gray-900"
                 >
                   Why Heypexx
@@ -102,7 +102,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  href="/Service"
+                  href="/services"
                   className="text-gray-600 hover:text-gray-900"
                 >
                   Our Services
@@ -110,7 +110,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  href="/Faqs"
+                  href="/faqsect"
                   className="text-gray-600 hover:text-gray-900"
                 >
                   FAQS
