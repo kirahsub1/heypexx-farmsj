@@ -1,11 +1,18 @@
+"use client";
+
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Facebook, Twitter, Instagram, Linkedin,Mail,Phone } from 'lucide-react';
+import NewsletterSection from "../landing/Newsletter";
 
 const Footer = () => {
   return (
     <footer className="bg-gray-100 text-gray-800 border-t border-b border-gray-300 pt-12 mt-16">
+      <div className="border-b border-gray-300 pb-8">
+        <NewsletterSection />
+      </div>
+
       <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-5 gap-8 pb-12">
         {/* Logo and Description */}
         <div className="md:col-span-1 md:border-r border-gray-300 pr-6">

@@ -10,7 +10,7 @@ import Slideshow from "./components/landing/Slider";
 import HowItWorks from "./components/landing/HowItwork";
 import TestimonialSection from "./components/landing/Testimonial";
 import FAQSection from "./components/landing/Faq";
-import Newsletter from "./components/landing/Newsletter";
+// import Newsletter from "./components/landing/Newsletter";
 
 export default function Home() {
   return (
@@ -24,7 +24,7 @@ export default function Home() {
       <HowItWorks />
       <TestimonialSection />
       <FAQSection />
-      <Newsletter />
+  
     </div>
   );
 }
