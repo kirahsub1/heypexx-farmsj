@@ -1,10 +1,14 @@
 "use client";
 
-import { useState } from "react";
+import { useState, ReactNode } from "react";
 import Sidebar from "./components/Sidebar";
 import Header from "./components/Header";
 
-export default function Home() {
+type HomeProps = {
+  children: ReactNode;
+};
+
+export default function Home({ children }: HomeProps) {
   const [sidebarOpen, setSidebarOpen] = useState(true);
 
   return (
@@ -16,9 +20,7 @@ export default function Home() {
         }`}
       >
         <Header onToggleSidebar={() => setSidebarOpen(!sidebarOpen)} />
-        <main className="p-6">
-          <p className="text-gray-700">Welcome to your dashboard!</p>
-        </main>
+        <main className="p-6">{children}</main>
       </div>
     </div>
   );

@@ -50,7 +50,7 @@ const Header = ({ onToggleSidebar }: HeaderProps) => {
           <span className="absolute top-0 right-0 w-2 h-2 bg-red-500 rounded-full" />
         </button>
         <Image
-          src="/user.jpg"
+          src="https://res.cloudinary.com/dgcjq4kbf/image/upload/v1745939076/image_5_x6mj9r.png"
           alt="User avatar"
           width={36}
           height={36}
