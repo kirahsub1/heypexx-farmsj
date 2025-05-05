@@ -9,7 +9,11 @@ export default function Dashboard() {
       image:
         "https://res.cloudinary.com/dgcjq4kbf/image/upload/v1745939076/image_8_hgvz2q.png",
     },
-    { name: "Vegetables", image: "/categories/vegetables.png" },
+    {
+      name: "Vegetables",
+      image:
+        "https://res.cloudinary.com/dgcjq4kbf/image/upload/v1745939076/image_8_hgvz2q.png",
+    },
     {
       name: "Grains",
       image:
