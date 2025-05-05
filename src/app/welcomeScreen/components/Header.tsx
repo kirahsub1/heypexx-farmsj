@@ -1,4 +1,4 @@
-"use client"; // Only if you're using Next.js App Router (optional)
+"use client"; 
 
 import React from "react";
 import { format } from "date-fns";

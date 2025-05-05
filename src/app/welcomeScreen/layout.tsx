@@ -1,26 +1,21 @@
 "use client";
 
-import { useState, ReactNode } from "react";
-// import Sidebar from "./components/Sidebar";
-import DashboardHeader from "./components/Header";
+import React from "react";
+import Sidebar from "./components/Sidebar";
+import DashboardHeader from "./components/DashboardHeader";
 
-type HomeProps = {
-  children: ReactNode;
-};
-
-export default function Home({ children }: HomeProps) {
-  const [sidebarOpen, setSidebarOpen] = useState(true);
-
+export default function DashboardLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
-    <div className="flex">
-      {/* {sidebarOpen && <Sidebar />} */}
-      <div
-        className={`flex-1 transition-all duration-300 ${
-          sidebarOpen ? "ml-64" : "ml-0"
-        }`}
-      >
-        <DashboardHeader />
-        <main className="p-6">{children}</main>
+    <div className="min-h-screen flex bg-gray-100">
+      <Sidebar />
+
+      <div className="flex-1 flex flex-col">
+        <DashboardHeader  />
+        <main className="flex-1 p-6">{children}</main>
       </div>
     </div>
   );
