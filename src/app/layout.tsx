@@ -1,6 +1,6 @@
-import "../app/globals.css"; // Ensure correct path
+import "../app/globals.css"; 
 import Navbar from "./components/static/Navbar";
-import { ReactNode } from "react"; // Import ReactNode for type
+import { ReactNode } from "react"; 
 import Footer from "./components/static/Footer"
 
 
@@ -12,7 +12,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en">
       <body>
-        <Navbar /> {/* Correctly render Navbar as a component */}
+        <Navbar /> 
         <main>{children}</main>
         <Footer />
       </body>

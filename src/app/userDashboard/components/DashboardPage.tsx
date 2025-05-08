@@ -44,6 +44,7 @@ export default function Dashboard() {
             description="Fresh produce straight from our fields to your table. Limited stock available!"
             imageSrc="https://res.cloudinary.com/dgcjq4kbf/image/upload/v1745931388/image_4_wtmnuy.png"
             buttonLink="/shop"
+        
           />
         </div>
 

@@ -1,4 +1,4 @@
-import DashboardHeader from "./Header"; // or adjust relative path
+import DashboardHeader from "./Header";
 
 export default function DashboardPage() {
   return (

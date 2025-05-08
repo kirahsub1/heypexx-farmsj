@@ -2,7 +2,7 @@
 
 import { useState, ReactNode } from "react";
 import Sidebar from "./components/Sidebar";
-import DashboardHeader from "./components/Header";
+import Header from "./components/Header";
 
 type HomeProps = {
   children: ReactNode;
@@ -10,10 +10,6 @@ type HomeProps = {
 
 export default function Home({ children }: HomeProps) {
   const [sidebarOpen, setSidebarOpen] = useState(true);
-
-  const toggleSidebar = () => {
-    setSidebarOpen((prev) => !prev);
-  };
 
   return (
     <div className="flex">
@@ -23,7 +19,7 @@ export default function Home({ children }: HomeProps) {
           sidebarOpen ? "ml-64" : "ml-0"
         }`}
       >
-        <DashboardHeader username="Mimi" onToggleSidebar={toggleSidebar} />
+        <Header onToggleSidebar={() => setSidebarOpen(!sidebarOpen)} />
         <main className="p-6">{children}</main>
       </div>
     </div>
