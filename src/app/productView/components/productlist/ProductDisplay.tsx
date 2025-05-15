@@ -1,32 +1,56 @@
+// pages/index.tsx
 import ProductList from "./ProductList";
 import { Product } from "./types";
 
-const mockProducts: Product[] = [
+const allProducts: Product[] = [
   {
     id: 1,
-    name: "Organic Carrots",
-    price: 3.5,
-    image: "https://via.placeholder.com/300x200?text=Carrots",
+    title: "Tomatoes",
+    description: "Farm fresh full basket.",
+    price: 4000,
+    rating: 5,
+    ratingsCount: 150,
+    image:
+      "https://res.cloudinary.com/dgcjq4kbf/image/upload/v1747146466/Group_59_mfib4g.png",
   },
   {
     id: 2,
-    name: "Fresh Tomatoes",
-    price: 2.8,
-    image: "https://via.placeholder.com/300x200?text=Tomatoes",
+    title: "Green Pepper",
+    description: "Farm fresh full basket",
+    price: 2500,
+    rating: 4,
+    ratingsCount: 124,
+    image:
+      "https://res.cloudinary.com/dgcjq4kbf/image/upload/v1747146357/image_17_jpju6w.png",
   },
   {
     id: 3,
-    name: "Green Lettuce",
-    price: 1.9,
-    image: "https://via.placeholder.com/300x200?text=Lettuce",
+    title: "Atarodo",
+    description: "Farm fresh full basket",
+    price: 1500,
+    rating: 4,
+    ratingsCount: 80,
+    image:
+      "https://res.cloudinary.com/dgcjq4kbf/image/upload/v1747146357/image_18_ptmqsy.png",
   },
+  {
+    id: 4,
+    title: "Onions",
+    description: "Farm fresh full basket",
+    price: 4000,
+    rating: 5,
+    ratingsCount: 100,
+    image:
+      "https://res.cloudinary.com/dgcjq4kbf/image/upload/v1747146357/image_19_afuhzi.png",
+  },
+ 
 ];
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-gray-100">
-      <h1 className="text-3xl font-bold text-center py-8">Product List</h1>
-      <ProductList products={mockProducts} />
+      <h1 className="text-3xl font-bold text-center py-8">Our Fresh Produce</h1>
+      <ProductList products={allProducts} />
     </main>
   );
 }
