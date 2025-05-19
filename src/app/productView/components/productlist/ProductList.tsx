@@ -27,12 +27,8 @@ const ProductList: React.FC<ProductListProps> = ({ products }) => {
             </div>
 
             <div className="p-4">
-              <h2 className="text-lg font-semibold text-gray-800">
-                {product.title}
-              </h2>
-              <p className="text-gray-500 text-sm mt-1">
-                {product.description}
-              </p>
+              <h2 className="text-lg font-semibold text-gray-800">{product.title}</h2>
+              <p className="text-gray-500 text-sm mt-1">{product.description}</p>
 
               <div className="flex items-center text-yellow-400 mt-2 text-sm">
                 {Array(product.rating)
@@ -57,3 +53,4 @@ const ProductList: React.FC<ProductListProps> = ({ products }) => {
 };
 
 export default ProductList;
+

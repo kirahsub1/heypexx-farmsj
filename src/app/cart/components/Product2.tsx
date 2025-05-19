@@ -1,5 +1,5 @@
-import ProductList from "./ProductList";
-import { Product } from "./types";
+import ProductList from "../../productView/components/productlist/ProductList";
+import { Product } from "../../productView/components/productlist/types";
 
 const allProducts: Product[] = [
   {
@@ -10,7 +10,7 @@ const allProducts: Product[] = [
     rating: 5,
     ratingsCount: 150,
     image:
-      "https://res.cloudinary.com/dgcjq4kbf/image/upload/v1747146466/Group_59_mfib4g.png",
+      "https://res.cloudinary.com/dgcjq4kbf/image/upload/v1747665797/Group_59_1_euj7v6.pngh",
   },
   {
     id: 2,
@@ -46,12 +46,14 @@ const allProducts: Product[] = [
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-gray-100 pt-16 pb-6">
+    <main className="min-h-screen bg-gray-100 pt-6 pb-2">
+      {" "}
+      {/* Reduced padding here */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Flex header like "Verified Customer Feedback" */}
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-4">
           <h2 className="text-xl font-semibold text-gray-800">
-            Sponsored products
+            You may also like
           </h2>
           <a href="#" className="text-green-600 font-medium">
             See all
@@ -63,3 +65,4 @@ export default function Home() {
     </main>
   );
 }
+  

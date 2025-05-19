@@ -25,7 +25,7 @@ export default function CartPage() {
   const subtotal = price1 * quantity1 + price2 * quantity2;
 
   return (
-    <div className="min-h-screen bg-gray-100 p-6">
+    <div className="bg-gray-100 py-10 px-6">
       <div className="max-w-6xl mx-auto flex flex-col lg:flex-row gap-8">
         {/* Left Column: Cart Items */}
         <div className="flex-1 space-y-4">
