@@ -45,7 +45,7 @@ const allProducts: Product[] = [
 ];
 export default function Home() {
   return (
-    <main className="min-h-screen bg-gray-100 pt-6 pb-2">
+    <main className=" bg-gray-100 pt-3 pb-1">
       {" "}
       {/* Reduced padding here */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
