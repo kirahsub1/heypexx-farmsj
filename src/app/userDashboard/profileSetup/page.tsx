@@ -1,4 +1,4 @@
-import BuyerProfileForm from "../../userDashboard/components/BuyersProfileForm"
+import BuyerProfileForm from "../components/BuyersProfileForm"
 
 
 const page = () => {

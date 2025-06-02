@@ -16,7 +16,7 @@ const DashboardHeader: React.FC<DashboardHeaderProps> = ({
   const currentDate = format(new Date(), "eeee, MMMM do yyyy");
 
   return (
-    <header className="h-16 bg-white px-6 flex items-center justify-between sticky top-0 z-10 border-b border-gray-200">
+    <header className="h-16 bg-white px-6 flex items-center justify-between sticky top-0 z-10 transition-all shadow-md">
       {/* Left: Sidebar toggle & greeting */}
       <div className="flex items-center gap-4">
         {onToggleSidebar && (
@@ -43,7 +43,7 @@ const DashboardHeader: React.FC<DashboardHeaderProps> = ({
         <div className="hidden md:block">
           <input
             type="text"
-            placeholder="Search produce..."
+            placeholder="Search..."
             className="px-3 py-1.5 rounded-lg border border-gray-300 text-sm focus:outline-none focus:ring-2 focus:ring-green-500"
           />
         </div>

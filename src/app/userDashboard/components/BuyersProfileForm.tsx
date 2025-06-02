@@ -1,4 +1,5 @@
-// components/BuyerProfileForm.tsx
+"use client";
+
 import { useState } from "react";
 
 export default function BuyerProfileForm() {
