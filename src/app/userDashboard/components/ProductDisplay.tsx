@@ -1,5 +1,5 @@
-import ProductList from "../../productView/components/productlist/ProductList";
-import { Product } from "../../productView/components/productlist/types";
+import ProductList from "./productlist/ProductList";
+import { Product } from "./productlist/types";
 
 const allProducts: Product[] = [
   {
@@ -43,16 +43,15 @@ const allProducts: Product[] = [
       "https://res.cloudinary.com/dgcjq4kbf/image/upload/v1747146357/image_19_afuhzi.png",
   },
 ];
+
 export default function Home() {
   return (
-    <main className=" bg-gray-100 pt-3 pb-1">
-      {" "}
-      {/* Reduced padding here */}
+    <main className="min-h-screen bg-gray-100 pt-16 pb-6">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Flex header like "Verified Customer Feedback" */}
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-4">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6">
           <h2 className="text-xl font-semibold text-gray-800">
-            Recently viewed
+            Sponsored products
           </h2>
           <a href="#" className="text-green-600 font-medium">
             See all
@@ -64,4 +63,3 @@ export default function Home() {
     </main>
   );
 }
-  

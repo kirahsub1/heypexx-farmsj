@@ -1,6 +1,6 @@
 "use client";
 
-import CartItem from "./CartItem";
+import CartItem from "../../userDashboard/components/CartItem";
 import CartSummary from "./OrderSummary";
 import { useState } from "react";
 

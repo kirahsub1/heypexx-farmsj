@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import {
   Home,
   ShoppingCart,
@@ -27,89 +28,88 @@ const Sidebar = () => {
             width={50}
             height={50}
           />
-          {/* <span className="text-xl font-semibold text-green-700">Heypexx</span> */}
         </div>
 
         {/* Nav Links */}
         <nav className="px-4 py-6 space-y-2">
-          <a
-            href="#"
+          <Link
+            href="/userDashboard"
             className="flex items-center gap-3 px-4 py-2 rounded hover:bg-green-600 hover:text-white transition"
           >
             <Home className="w-5 h-5" />
             Dashboard
-          </a>
-          <a
-            href="#"
+          </Link>
+          <Link
+            href="/userDashboard/cart"
             className="flex items-center gap-3 px-4 py-2 rounded hover:bg-green-600 hover:text-white transition"
           >
             <ShoppingCart className="w-5 h-5" />
             My Cart
-          </a>
-          <a
-            href="#"
+          </Link>
+          <Link
+            href="/userDashboard/productlisting"
             className="flex items-center gap-3 px-4 py-2 rounded hover:bg-green-600 hover:text-white transition"
           >
             <Leaf className="w-5 h-5" />
             Farm Produce
-          </a>
-          <a
+          </Link>
+          <Link
             href="#"
             className="flex items-center gap-3 px-4 py-2 rounded hover:bg-green-600 hover:text-white transition"
           >
             <MapPin className="w-5 h-5" />
             Land Leasing
-          </a>
-          <a
+          </Link>
+          <Link
             href="#"
             className="flex items-center gap-3 px-4 py-2 rounded hover:bg-green-600 hover:text-white transition"
           >
             <CreditCard className="w-5 h-5" />
             Transactions
-          </a>
-          <a
+          </Link>
+          <Link
             href="#"
             className="flex items-center gap-3 px-4 py-2 rounded hover:bg-green-600 hover:text-white transition"
           >
             <Truck className="w-5 h-5" />
             Exportation
-          </a>
+          </Link>
 
           <hr className="my-4 border-gray-300" />
 
-          <a
+          <Link
             href="#"
             className="flex items-center gap-3 px-4 py-2 rounded hover:bg-gray-300"
           >
             <Settings className="w-5 h-5" />
             Settings
-          </a>
-          <a
+          </Link>
+          <Link
             href="#"
             className="flex items-center gap-3 px-4 py-2 rounded hover:bg-gray-300"
           >
             <HelpCircle className="w-5 h-5" />
             Help
-          </a>
-          <a
+          </Link>
+          <Link
             href="#"
             className="flex items-center gap-3 px-4 py-2 rounded hover:bg-gray-300"
           >
             <User className="w-5 h-5" />
             Profile
-          </a>
+          </Link>
         </nav>
       </div>
 
       {/* Bottom Section: Logout */}
       <div className="px-4 py-4 border-t border-gray-300">
-        <a
+        <Link
           href="#"
           className="flex items-center gap-3 px-4 py-2 rounded hover:bg-red-500 hover:text-white transition"
         >
           <LogOut className="w-5 h-5" />
           Logout
-        </a>
+        </Link>
       </div>
     </aside>
   );
