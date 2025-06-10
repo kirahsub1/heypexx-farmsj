@@ -3,7 +3,9 @@
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
 import Image from "next/image";
-import { Star } from "lucide-react";
+import { Star, Quote } from "lucide-react";
+import { motion } from "framer-motion";
+import { useCallback, useEffect, useRef } from "react";
 
 interface TestimonialProps {
   name: string;
@@ -11,31 +13,44 @@ interface TestimonialProps {
   message: string;
   rating: number;
   image: string;
+  location: string;
 }
 
 const testimonials: TestimonialProps[] = [
   {
-    name: "John Doe",
-    title: "CEO, InnovateTech",
-    message: "Absolutely loved the experience! Highly recommended!",
+    name: "Michael Chen",
+    title: "Farm Owner",
+    message:
+      "Heypexx Farms has revolutionized how we connect with buyers. Their platform made it incredibly easy to reach new markets and get better prices for our produce.",
     rating: 5,
     image: "https://randomuser.me/api/portraits/men/32.jpg",
+    location: "California, USA",
   },
   {
-    name: "Jane Smith",
-    title: "Marketing Director, CreativeHub",
-    message: "Great service, would definitely come back!",
-    rating: 4,
+    name: "Sarah Johnson",
+    title: "Agricultural Exporter",
+    message:
+      "The export services provided by Heypexx are exceptional. They've helped us expand our reach to international markets with minimal hassle.",
+    rating: 5,
     image: "https://randomuser.me/api/portraits/women/44.jpg",
+    location: "Ontario, Canada",
   },
   {
-    name: "Alex Brown",
-    title: "Product Manager, TechWorld",
-    message: "Fantastic! Made my day so much better!",
+    name: "David Williams",
+    title: "Land Owner",
+    message:
+      "I've had great success leasing my agricultural land through Heypexx. Their platform connects you with reliable farmers and ensures smooth transactions.",
     rating: 5,
     image: "https://randomuser.me/api/portraits/men/47.jpg",
+    location: "Texas, USA",
   },
 ];
+
+const fadeInUp = {
+  initial: { opacity: 0, y: 20 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.5 },
+};
 
 const TestimonialCard = ({
   name,
@@ -43,57 +58,70 @@ const TestimonialCard = ({
   message,
   rating,
   image,
+  location,
 }: TestimonialProps) => {
   return (
-    <div className="keen-slider__slide flex justify-center">
-      <div className="w-full max-w-lg p-8 rounded-3xl shadow-2xl bg-white text-gray-900 transition-all duration-300">
+    <div className="keen-slider__slide flex justify-center px-4">
+      <motion.div
+        initial="initial"
+        whileInView="animate"
+        variants={fadeInUp}
+        className="w-full max-w-2xl p-8 rounded-3xl shadow-[0_10px_40px_-15px_rgba(0,0,0,0.15)] bg-white/95 backdrop-blur-sm text-gray-900 transition-all duration-300 hover:shadow-[0_20px_50px_-15px_rgba(0,0,0,0.2)]"
+      >
+        {/* Quote Icon */}
+        <div className="mb-6">
+          <Quote size={40} className="text-[#46A908] opacity-30" />
+        </div>
+
+        {/* Message */}
+        <p className="text-xl font-medium leading-relaxed text-gray-700 mb-8 italic">
+          &ldquo;{message}&rdquo;
+        </p>
+
         {/* Rating */}
-        <div className="flex items-center gap-1 mb-4">
+        <div className="flex items-center gap-1 mb-6">
           {[...Array(5)].map((_, i) => (
             <Star
               key={i}
-              size={26}
+              size={22}
               className={i < rating ? "text-yellow-400" : "text-gray-300"}
               fill={i < rating ? "currentColor" : "none"}
             />
           ))}
         </div>
 
-        {/* Title */}
-        <h3 className="text-xl font-bold text-gray-800 mb-2">{title}</h3>
-
-        {/* Message */}
-        <p className="text-lg font-medium italic leading-relaxed text-gray-600">
-          &#39;{message}&#39;
-        </p>
-
         {/* User Info */}
-        <div className="mt-6 flex items-center gap-4">
-          <div className="relative w-14 h-14 rounded-full overflow-hidden border-4 border-gray-200 shadow-lg">
+        <div className="flex items-center gap-4">
+          <div className="relative w-16 h-16 rounded-full overflow-hidden border-4 border-[#46A908]/10 shadow-lg">
             <Image
               src={image}
               alt={name}
               layout="fill"
               objectFit="cover"
-              sizes="56px"
+              sizes="64px"
               className="rounded-full"
             />
           </div>
-          <span className="font-bold text-lg text-gray-900">{name}</span>
+          <div className="flex flex-col">
+            <span className="font-bold text-xl text-gray-900">{name}</span>
+            <span className="text-[#46A908] font-medium">{title}</span>
+            <span className="text-gray-500 text-sm">{location}</span>
+          </div>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };
 
 const Testimonials = () => {
-  const [sliderRef] = useKeenSlider<HTMLDivElement>(
+  const timeoutRef = useRef<NodeJS.Timeout | undefined>(undefined);
+  const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>(
     {
       loop: true,
       mode: "free-snap",
       slides: {
         perView: 1,
-        spacing: 24,
+        spacing: 48,
       },
     },
     [
@@ -130,17 +158,65 @@ const Testimonials = () => {
     ]
   );
 
+  const stopAutoplay = useCallback(() => {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
+  }, []);
+
+  const startAutoplay = useCallback(() => {
+    stopAutoplay();
+    if (instanceRef.current) {
+      timeoutRef.current = setTimeout(() => {
+        instanceRef.current?.next();
+        startAutoplay();
+      }, 5000);
+    }
+  }, [instanceRef, stopAutoplay]);
+
+  useEffect(() => {
+    startAutoplay();
+    return () => {
+      stopAutoplay();
+    };
+  }, [startAutoplay, stopAutoplay]);
+
   return (
-    <div className="p-12 bg-gradient-to-b from-[#c3e4aa] to-white min-h-screen flex flex-col items-center">
-      <h2 className="text-4xl font-extrabold text-gray-900 mb-12 uppercase tracking-wide">
-        What People Say
-      </h2>
-      <div ref={sliderRef} className="keen-slider w-full max-w-4xl">
-        {testimonials.map((testimonial, idx) => (
-          <TestimonialCard key={idx} {...testimonial} />
-        ))}
+    <section className="relative py-24 overflow-hidden">
+      {/* Decorative background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-[#c3e4aa]/40 to-white">
+        <div className="absolute inset-0 opacity-[0.05] bg-[radial-gradient(circle_at_center,_#46A908_1px,_transparent_1px)] [background-size:24px_24px]" />
       </div>
-    </div>
+
+      <div className="relative max-w-7xl mx-auto px-4">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            What Our Clients Say
+          </h2>
+          <div className="w-20 h-1 bg-[#46A908] mx-auto rounded-full mb-6" />
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            Hear from our satisfied farmers, exporters, and landowners
+          </p>
+        </motion.div>
+
+        {/* Slider container */}
+        <div
+          ref={sliderRef}
+          className="keen-slider"
+          onMouseEnter={stopAutoplay}
+          onMouseLeave={startAutoplay}
+        >
+          {testimonials.map((testimonial, idx) => (
+            <TestimonialCard key={idx} {...testimonial} />
+          ))}
+        </div>
+      </div>
+    </section>
   );
 };
 

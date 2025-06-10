@@ -47,14 +47,14 @@ const Sidebar = () => {
             My Cart
           </Link>
           <Link
-            href="/userDashboard/productlisting"
+            href="/userDashboard"
             className="flex items-center gap-3 px-4 py-2 rounded hover:bg-green-600 hover:text-white transition"
           >
             <Leaf className="w-5 h-5" />
             Farm Produce
           </Link>
           <Link
-            href="#"
+            href="/"
             className="flex items-center gap-3 px-4 py-2 rounded hover:bg-green-600 hover:text-white transition"
           >
             <MapPin className="w-5 h-5" />
@@ -91,8 +91,9 @@ const Sidebar = () => {
             <HelpCircle className="w-5 h-5" />
             Help
           </Link>
+          {/* Profile now links to profile setup page */}
           <Link
-            href="#"
+            href="/userDashboard/profileSetup"
             className="flex items-center gap-3 px-4 py-2 rounded hover:bg-gray-300"
           >
             <User className="w-5 h-5" />

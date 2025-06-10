@@ -1,107 +1,158 @@
 // components/Navbar.tsx
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  // Handle scroll effect
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <nav className="bg-[#C3E4AA] text-white rounded-full shadow-lg mx-auto my-3 max-w-4xl">
-      <div className="px-4">
-        <div className="flex justify-between items-center h-12">
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled
+          ? "bg-white/80 backdrop-blur-md shadow-lg"
+          : "bg-transparent"
+      }`}
+    >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex items-center">
-            <Link href="/">
+            <Link href="/" className="flex items-center space-x-2">
               <Image
                 src="https://res.cloudinary.com/dgcjq4kbf/image/upload/v1737469420/image_18_gwbxab.png"
                 alt="Heypexx Logo"
-                width={100} // Set appropriate width
-                height={32} // Set appropriate height
-                priority // Ensures faster loading for LCP images
-                className="h-8 w-auto"
+                width={120}
+                height={40}
+                priority
+                className="h-10 w-auto"
               />
             </Link>
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex space-x-4 items-center text-sm text-green-900">
-            <Link href="/" className="hover:text-gray-700">
+          <div className="hidden md:flex items-center space-x-8">
+            <Link
+              href="/"
+              className="text-gray-800 hover:text-green-600 transition-colors duration-200 text-sm font-medium"
+            >
               Home
             </Link>
-            <Link href="/whyHeypexx" className="hover:text-gray-700">
+            <Link
+              href="/whyHeypexx"
+              className="text-gray-800 hover:text-green-600 transition-colors duration-200 text-sm font-medium"
+            >
               Why Heypexx
             </Link>
-            <Link href="/services" className="hover:text-gray-700">
+            <Link
+              href="/services"
+              className="text-gray-800 hover:text-green-600 transition-colors duration-200 text-sm font-medium"
+            >
               Our Service
             </Link>
-            <Link href="/contact" className="hover:text-gray-700">
+            <Link
+              href="/contact"
+              className="text-gray-800 hover:text-green-600 transition-colors duration-200 text-sm font-medium"
+            >
               Contact Us
             </Link>
-          </div>
 
-          {/* Sign In & Register Buttons */}
-          <div className="hidden md:flex space-x-3">
-            <Link
-              href="/signin"
-              className="px-3 py-1 bg-white text-green-600 rounded-xl text-sm hover:bg-gray-200"
-            >
-              Sign In
-            </Link>
-            <Link
-              href="/register"
-              className="px-3 py-1 bg-[#46A908] text-white rounded-xl text-sm hover:bg-green-600"
-            >
-              Register
-            </Link>
+            {/* Auth Buttons */}
+            <div className="flex items-center space-x-4">
+              <Link
+                href="/signin"
+                className="px-4 py-2 text-sm font-medium text-gray-800 hover:text-green-600 transition-colors duration-200"
+              >
+                Sign In
+              </Link>
+              <Link
+                href="/register"
+                className="px-4 py-2 text-sm font-medium text-white bg-green-600 rounded-full hover:bg-green-700 transition-colors duration-200 shadow-md hover:shadow-lg"
+              >
+                Register
+              </Link>
+            </div>
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden flex items-center">
+          <div className="md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-green-900"
+              className="inline-flex items-center justify-center p-2 rounded-md text-gray-800 hover:text-green-600 hover:bg-gray-100 focus:outline-none transition-colors duration-200"
+              aria-expanded="false"
             >
-              {isOpen ? <X size={24} /> : <Menu size={24} />}
+              {isOpen ? (
+                <X className="block h-6 w-6" aria-hidden="true" />
+              ) : (
+                <Menu className="block h-6 w-6" aria-hidden="true" />
+              )}
             </button>
           </div>
         </div>
       </div>
 
       {/* Mobile Menu */}
-      {isOpen && (
-        <div className="md:hidden bg-green-400 rounded-b-2xl px-3 py-2 text-center text-sm text-green-900">
-          <Link href="/" className="block py-1 hover:text-gray-700">
+      <div
+        className={`md:hidden transition-all duration-300 ease-in-out ${
+          isOpen
+            ? "opacity-100 translate-y-0"
+            : "opacity-0 -translate-y-full pointer-events-none"
+        }`}
+      >
+        <div className="px-4 pt-2 pb-4 bg-white/80 backdrop-blur-md space-y-1">
+          <Link
+            href="/"
+            className="block px-3 py-2 text-base font-medium text-gray-800 hover:text-green-600 hover:bg-gray-50 rounded-md transition-colors duration-200"
+          >
             Home
           </Link>
-          <Link href="/why-heypexx" className="block py-1 hover:text-gray-700">
+          <Link
+            href="/whyHeypexx"
+            className="block px-3 py-2 text-base font-medium text-gray-800 hover:text-green-600 hover:bg-gray-50 rounded-md transition-colors duration-200"
+          >
             Why Heypexx
           </Link>
-          <Link href="/services" className="block py-1 hover:text-gray-700">
+          <Link
+            href="/services"
+            className="block px-3 py-2 text-base font-medium text-gray-800 hover:text-green-600 hover:bg-gray-50 rounded-md transition-colors duration-200"
+          >
             Our Service
           </Link>
-          <Link href="/contact" className="block py-1 hover:text-gray-700">
+          <Link
+            href="/contact"
+            className="block px-3 py-2 text-base font-medium text-gray-800 hover:text-green-600 hover:bg-gray-50 rounded-md transition-colors duration-200"
+          >
             Contact Us
           </Link>
-          <div className="mt-3 space-y-2">
+          <div className="pt-4 space-y-2">
             <Link
               href="/signin"
-              className="block px-4 py-1 bg-white text-green-600 rounded-xl hover:bg-gray-200"
+              className="block w-full px-4 py-2 text-center text-base font-medium text-gray-800 hover:text-green-600 border border-gray-300 rounded-md hover:bg-gray-50 transition-colors duration-200"
             >
               Sign In
             </Link>
             <Link
               href="/register"
-              className="block px-4 py-1 bg-green-700 text-white rounded-xl hover:bg-green-600"
+              className="block w-full px-4 py-2 text-center text-base font-medium text-white bg-green-600 rounded-md hover:bg-green-700 transition-colors duration-200 shadow-md hover:shadow-lg"
             >
               Register
             </Link>
           </div>
         </div>
-      )}
+      </div>
     </nav>
   );
 };
