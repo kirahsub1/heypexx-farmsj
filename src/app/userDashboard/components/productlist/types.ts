@@ -7,5 +7,5 @@ export interface Product {
   rating: number;
   ratingsCount: number;
   image: string;
-  
+  overlayColor?: string; // Making it optional with ?
 }

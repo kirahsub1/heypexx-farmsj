@@ -5,7 +5,7 @@ import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 
-const whatsappLink = "https://wa.me/2349012345678"; // Replace with your WhatsApp number
+const whatsappLink = "https://wa.me/2348023356010"; 
 
 const ChatBotButton = () => {
   const [isVisible, setIsVisible] = useState(false);

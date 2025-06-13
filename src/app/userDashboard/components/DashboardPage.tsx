@@ -1,6 +1,10 @@
 // pages/dashboard.tsx
+"use client";
+
+import { motion } from "framer-motion";
 import DashboardCtaPanel from "./CtaPanel";
 import Image from "next/image";
+import { ArrowRight, TrendingUp } from "lucide-react";
 
 export default function Dashboard() {
   const categories = [
@@ -34,57 +38,118 @@ export default function Dashboard() {
     { name: "Oils", image: "/categories/oils.png" },
   ];
 
+  const container = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
+  const item = {
+    hidden: { opacity: 0, y: 20 },
+    show: { opacity: 1, y: 0 },
+  };
+
   return (
-    <div className="p-6">
+    <motion.div
+      initial="hidden"
+      animate="show"
+      variants={container}
+      className="p-6 space-y-6"
+    >
       <div className="flex flex-col lg:flex-row gap-6 items-start">
-        {/* CTA Panel takes more space */}
-        <div className="w-full lg:w-2/3">
+        {/* CTA Panel with enhanced styling */}
+        <motion.div
+          variants={item}
+          className="w-full lg:w-2/3 transition-transform hover:scale-[1.01]"
+        >
           <DashboardCtaPanel
             title="Get the Latest Farm Products"
             description="Fresh produce straight from our fields to your table. Limited stock available!"
             imageSrc="https://res.cloudinary.com/dgcjq4kbf/image/upload/v1745931388/image_4_wtmnuy.png"
             buttonLink="/shop"
-        
           />
-        </div>
+        </motion.div>
 
-        {/* Categories Section (smaller width) */}
-        <div className="w-full lg:w-1/3 bg-white border rounded-2xl p-4 shadow-md h-fit">
+        {/* Categories Section with modern design */}
+        <motion.div
+          variants={item}
+          className="w-full lg:w-1/3 bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow border border-gray-100"
+        >
           {/* Header Row */}
-          <div className="flex items-center justify-between mb-4">
-            <h2 className="text-lg font-bold text-gray-800"> Our Categories</h2>
-            <a
+          <div className="flex items-center justify-between mb-6">
+            <div>
+              <h2 className="text-xl font-bold text-gray-800">Our Categories</h2>
+              <p className="text-sm text-gray-500 mt-1">
+                Explore our fresh selections
+              </p>
+            </div>
+            <motion.a
               href="/categories"
-              className="text-sm text-[#46A908] hover:underline"
+              className="flex items-center gap-2 text-sm font-medium text-green-600 hover:text-green-700 group"
+              whileHover={{ x: 5 }}
+              transition={{ type: "spring", stiffness: 300 }}
             >
               See all
-            </a>
+              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+            </motion.a>
           </div>
 
-          {/* Category Circles */}
+          {/* Category Grid with animations */}
           <div className="grid grid-cols-4 gap-4">
             {categories.map((category) => (
-              <div
+              <motion.div
                 key={category.name}
-                className="flex flex-col items-center text-center"
+                variants={item}
+                whileHover={{ y: -5 }}
+                className="group cursor-pointer"
               >
-                <div className="w-14 h-14 rounded-full overflow-hidden border">
-                  <Image
-                    src={category.image}
-                    alt={category.name}
-                    width={56}
-                    height={56}
-                    className="object-cover"
-                  />
+                <div className="flex flex-col items-center text-center">
+                  <div className="relative w-16 h-16 mb-2">
+                    <div className="absolute inset-0 bg-green-100 rounded-2xl transform -rotate-6 group-hover:rotate-0 transition-transform" />
+                    <div className="absolute inset-0 bg-white rounded-2xl shadow-sm group-hover:shadow-md transition-all">
+                      <div className="w-full h-full rounded-2xl overflow-hidden border-2 border-gray-50">
+                        <Image
+                          src={category.image}
+                          alt={category.name}
+                          width={64}
+                          height={64}
+                          className="object-cover group-hover:scale-110 transition-transform duration-300"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <span className="text-sm font-medium text-gray-700 group-hover:text-green-600 transition-colors">
+                    {category.name}
+                  </span>
                 </div>
-                <span className="text-xs mt-1 text-gray-700">
-                  {category.name}
-                </span>
-              </div>
+              </motion.div>
             ))}
           </div>
-        </div>
+
+          {/* Trending Section */}
+          <div className="mt-8 pt-6 border-t border-gray-100">
+            <div className="flex items-center gap-2 text-green-600 mb-4">
+              <TrendingUp className="w-5 h-5" />
+              <span className="font-semibold">Trending Categories</span>
+            </div>
+            <div className="flex gap-2">
+              {["Fruits", "Vegetables", "Dairy"].map((trend) => (
+                <motion.span
+                  key={trend}
+                  whileHover={{ scale: 1.05 }}
+                  className="px-3 py-1 text-sm bg-green-50 text-green-600 rounded-full cursor-pointer hover:bg-green-100 transition-colors"
+                >
+                  {trend}
+                </motion.span>
+              ))}
+            </div>
+          </div>
+        </motion.div>
       </div>
-    </div>
+    </motion.div>
   );
 }
