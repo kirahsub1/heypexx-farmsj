@@ -3,7 +3,8 @@
 import React, { useState, ChangeEvent } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { Eye, EyeOff, Mail, Lock } from "lucide-react";
-import Button from "@/app/components/buttons/Button";
+import { Button } from "@/app/components/ui/Button";
+import { useRouter } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -102,32 +103,62 @@ const LoginPage: React.FC = () => {
       [name]: type === "checkbox" ? checked : value,
     }));
 
+    // Clear error when user starts typing
     if (errors[name as keyof FormErrors]) {
       setErrors((prev) => ({ ...prev, [name]: "" }));
     }
   };
 
-  const handleForgotPassword = () => {
-    window.location.href = "/forgetPassword";
+  const validateForm = (): boolean => {
+    const newErrors: FormErrors = {};
+
+    if (!formData.email) {
+      newErrors.email = "Email is required";
+    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      newErrors.email = "Please enter a valid email address";
+    }
+
+    if (!formData.password) {
+      newErrors.password = "Password is required";
+    } else if (formData.password.length < 6) {
+      newErrors.password = "Password must be at least 6 characters";
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
   };
 
-  const handleSignUp = () => {
-    window.location.href = "/register";
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    if (!validateForm()) {
+      return;
+    }
+
     setLoading(true);
-    // Add your form submission logic here
-    console.log("Form submitted:", formData);
-    setTimeout(() => {
+    try {
+      // TODO: Add your authentication logic here      // For now, simulate API call
+      await new Promise((resolve) => setTimeout(resolve, 1500));
+      router.push("/userDashboard");
+    } catch (error) {
+      console.error("Login error:", error);
+      setErrors({
+        email: "Invalid credentials",
+        password: "Invalid credentials",
+      });
+    } finally {
       setLoading(false);
-    }, 2000);
+    }
   };
 
   const handleGoogleAuth = () => {
     // Add your Google auth logic here
     console.log("Google auth triggered");
+  };
+  const router = useRouter();
+
+  const handleForgotPassword = () => {
+    router.push("/forgetPassword");
   };
 
   return (
@@ -154,7 +185,7 @@ const LoginPage: React.FC = () => {
                 <div className="w-10 h-10  rounded-lg flex items-center justify-center">
                   <span className="text-green-600 font-bold text-xl">
                     <Image
-                      src="https://res.cloudinary.com/dgcjq4kbf/image/upload/v1737469420/image_18_gwbxab.png"
+                      src="https://res.cloudinary.com/dgcjq4kbf/image/upload_v1737469420/image_18_gwbxab.png"
                       alt="Heypexx Farm Logo"
                       width={40}
                       height={40}
@@ -267,12 +298,12 @@ const LoginPage: React.FC = () => {
                 </div>
 
                 <Button
-                  bgColor="bg-green-600 hover:bg-green-700"
-                  textColor="text-white"
-                  text="Sign In"
-                  loading={loading}
+                  variant="primary"
+                  className="w-full"
                   disabled={loading}
-                />
+                >
+                  {loading ? "Signing in..." : "Sign In"}
+                </Button>
 
                 <div className="relative">
                   <div className="absolute inset-0 flex items-center">
@@ -286,30 +317,34 @@ const LoginPage: React.FC = () => {
                 </div>
 
                 <Button
-                  bgColor="bg-white hover:bg-gray-50 border border-gray-300"
-                  textColor="text-gray-700"
-                  icon={FcGoogle}
-                  text="Continue with Google"
+                  variant="outline"
+                  className="w-full flex items-center justify-center gap-2"
                   onClick={handleGoogleAuth}
-                  loading={loading}
-                />
+                  disabled={loading}
+                  type="button"
+                >
+                  <FcGoogle className="h-5 w-5" />
+                  Continue with Google
+                </Button>
 
                 <p className="text-center text-sm text-gray-600">
                   Don&apos;t have an account?{" "}
-                  <button
-                    type="button"
-                    onClick={handleSignUp}
+                  <Link
+                    href="/register"
                     className="text-green-600 hover:text-green-700 font-medium transition-colors"
                   >
                     Sign up
-                  </button>
+                  </Link>
                 </p>
 
                 <p className="text-xs text-center text-gray-500 mt-4">
-                  By continuing you agree to Heypexx Farm&apos;s{" "}
-                  <button className="text-green-600 hover:text-green-700">
+                  By continuing you agree to Heypexx Farm&apos;s
+                  <Link
+                    href="/terms"
+                    className="text-green-600 hover:text-green-700"
+                  >
                     Terms and Conditions
-                  </button>
+                  </Link>
                 </p>
               </form>
             </div>

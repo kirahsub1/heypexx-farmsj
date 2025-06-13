@@ -1,10 +1,13 @@
+"use client";
+
 import React from "react";
-import WhyHeypexx from "../components/landing/Whyheypexx";
+import Whyheypexx from "../components/landing/Whyheypexx";
+import "../globals.css"; // Ensure correct path to your global styles
 
 const page = () => {
   return (
     <div>
-      <WhyHeypexx />
+      <Whyheypexx />
     </div>
   );
 };

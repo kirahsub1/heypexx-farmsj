@@ -3,7 +3,7 @@
 import "../app/globals.css"; // Ensure correct path
 import { Hero } from "./components/landing/Hero";
 import HighlightedSection from "./components/landing/Highlighted";
-import ImagePopupSection from "./components/landing/Whyheypexx";
+import Whyheypexx from "./components/landing/Whyheypexx";
 import Partnership from "./components/landing/Partner";
 import ServicesSection from "./components/landing/Service";
 import Slideshow from "./components/landing/Slider";
@@ -19,7 +19,7 @@ export default function Home() {
       <Slideshow />
       <Partnership />
       <HighlightedSection />
-      <ImagePopupSection />
+      <Whyheypexx />
       <ServicesSection />
       <HowItWorks />
       <TestimonialSection />

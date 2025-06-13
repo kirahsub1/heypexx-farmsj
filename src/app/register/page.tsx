@@ -4,8 +4,7 @@ import React, { useState, ChangeEvent } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { Eye, EyeOff, User, Mail, Lock, Check, X } from "lucide-react";
 import Button from "@/app/components/buttons/Button";
-import Image from "next/image";
-import Link from "next/link";
+import Image from "next/image"
 
 interface InputProps {
   type?: string;
