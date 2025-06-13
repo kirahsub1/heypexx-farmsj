@@ -23,7 +23,7 @@ const faqs = [
   {
     question: "How can I contact customer support?",
     answer:
-      "Our customer support team is available 24/7 through multiple channels. You can reach us via live chat on our website, email at support@heypexx.com, or phone at +1-800-HEYPEXX. We typically respond to inquiries within 2 hours during business hours.",
+      "Our customer support team is available 24/7 through multiple channels. You can reach us via live chat on our website, email at support@heypexx.com, or phone at +234 802 335 6010. We typically respond to inquiries within 2 hours during business hours.",
   },
   {
     question: "Are the farm products affordable?",
