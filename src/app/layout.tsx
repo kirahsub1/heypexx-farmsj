@@ -1,6 +1,7 @@
 import "../app/globals.css"; 
 import Navbar from "./components/static/Navbar";
 import { ReactNode } from "react"; 
+import ChatBotButton from "./components/landing/Chatbot";
 import Footer from "./components/static/Footer"
 
 
@@ -12,8 +13,9 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en">
       <body>
-        <Navbar /> 
+        <Navbar />
         <main>{children}</main>
+        <ChatBotButton />
         <Footer />
       </body>
     </html>
