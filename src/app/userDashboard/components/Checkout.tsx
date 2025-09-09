@@ -216,3 +216,4 @@ export function CheckoutPage() {
     </motion.div>
   );
 }
+ export default CheckoutPage;

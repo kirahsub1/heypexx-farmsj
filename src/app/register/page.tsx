@@ -2,9 +2,10 @@
 
 import React, { useState, ChangeEvent } from "react";
 import { FcGoogle } from "react-icons/fc";
-import { Eye, EyeOff, User, Mail, Lock, Check, X } from "lucide-react";
+import { Eye, EyeOff, User, Mail, Lock, Check, X, ArrowLeft } from "lucide-react";
 import Button from "@/app/components/buttons/Button";
-import Image from "next/image"
+import Image from "next/image";
+import Link from "next/link";
 
 interface InputProps {
   type?: string;
@@ -219,6 +220,14 @@ export default function RegisterPage() {
                   </span>
                 </div>
                 <span className="text-xl font-bold">Heypexx Farm</span>
+              </div>
+
+              {/* Back to Home Button */}
+              <div className="mb-6">
+                <Link href="/" className="inline-flex items-center text-white hover:text-green-200 transition-colors">
+                  <ArrowLeft className="w-5 h-5 mr-2" />
+                  Back to Home
+                </Link>
               </div>
 
               {/* Main Content */}

@@ -14,13 +14,14 @@ interface RootLayoutProps {
 export default function RootLayout({ children }: RootLayoutProps) {
   const pathname = usePathname();
   const isUserDashboard = pathname?.startsWith('/userDashboard');
+  const hideNavbar = pathname === '/register' || pathname === '/signin';
 
   return (
     <html lang="en">
       <body>
-        {!isUserDashboard && <Navbar />}
+        {!isUserDashboard && !hideNavbar && <Navbar />}
         <main>{children}</main>
-        {!isUserDashboard && (
+        {!isUserDashboard && !hideNavbar && (
           <>
             <ChatBotButton />
             <Footer />

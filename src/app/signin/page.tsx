@@ -2,7 +2,7 @@
 
 import React, { useState, ChangeEvent } from "react";
 import { FcGoogle } from "react-icons/fc";
-import { Eye, EyeOff, Mail, Lock } from "lucide-react";
+import { Eye, EyeOff, Mail, Lock, ArrowLeft } from "lucide-react";
 import { Button } from "@/app/components/ui/Button";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
@@ -194,6 +194,14 @@ const LoginPage: React.FC = () => {
                   </span>
                 </div>
                 <span className="text-xl font-bold">Heypexx Farm</span>
+              </div>
+
+              {/* Back to Home Button */}
+              <div className="mb-6">
+                <Link href="/" className="inline-flex items-center text-white hover:text-green-200 transition-colors">
+                  <ArrowLeft className="w-5 h-5 mr-2" />
+                  Back to Home
+                </Link>
               </div>
 
               {/* Main Content */}

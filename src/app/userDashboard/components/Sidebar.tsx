@@ -27,7 +27,7 @@ const Sidebar = () => {
     { href: "/userDashboard/welcomeScreen", icon: Home, label: "Dashboard" },
     { href: "/userDashboard/cart", icon: ShoppingCart, label: "My Cart" },
     { href: "/userDashboard/productView", icon: Leaf, label: "Farm Produce" },
-    { href: "/", icon: MapPin, label: "Land Leasing" },
+    { href: "/userDashboard/landLeasing", icon: MapPin, label: "Land Leasing" },
     { href: "#", icon: CreditCard, label: "Transactions" },
     { href: "#", icon: Truck, label: "Exportation" },
   ];
